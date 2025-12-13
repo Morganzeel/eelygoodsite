@@ -1,7 +1,28 @@
 ---
 import "../styles/global.css";
+import Logo from '../assets/LOGO.svg';
+import BG from "../../public/bg-main.jpg";
 ---
 
-<h1 class="text-4xl font-bold text-blue-600">
-  Hello world!
-</h1>
+<body class="hero-section">
+  <nav class="bg-amber-400 flex">
+  <div class="flex">
+    Test
+  </div>
+  <div class="flex flex-row-reverse bg-emerald-700">
+    <h1 class="text-xl font-bold text-red-600">
+    Test2
+    </h1>
+  </div>
+ </nav>
+  <h1 class="text-4xl font-bold text-blue-600">
+    Hello world!
+  </h1>
+</body>
+
+<style>
+  .hero-section {
+    background-image: url('/bg-main.jpg');
+    background-size: cover;
+  }
+</style>
