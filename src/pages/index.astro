@@ -1,11 +1,23 @@
 ---
 import "../styles/global.css";
-import Navbar from '../components/navbar.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<body class="bg">
-  <Navbar />
-  <h1 class="text-4xl font-bold text-blue-600">
-    Hello world!
-  </h1>
-</body>
+<Layout>
+  <div class = "text-white">
+    <p>
+      <h1 class="font-[Alex] text-5xl">About Me</h1>
+    </p>
+    <br><br>
+      <p>
+        <h5 class = "font-[Argh]">
+          My name is Imad, but online you can often find me under the username Morganzeel. <br>
+          My interests include penetration testing, software, web and game development, and (recently) working with embedded systems. <br>
+          I'm currently studying computer science at the University of Tuzla. <br>
+          If you want to see my work, please visit the Portfolio page and check out all the projects I worked on.<br>
+          If you want to check out my reports/writeups, or read about what I'm working on currently, visit the Blog page. <br>
+          If you want to get in touch with me, visit the Contact page to learn how.
+        </h5>
+      </p>
+    </div>
+</Layout>

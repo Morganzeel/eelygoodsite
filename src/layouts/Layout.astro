@@ -1,6 +1,7 @@
 ---
 import '../components/navbar.astro'
 import Navbar from '../components/navbar.astro'
+import Contentbox from '../components/contentbox.astro'
 ---
 
 <!doctype html>
@@ -12,9 +13,13 @@ import Navbar from '../components/navbar.astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class="bg">
 		<Navbar />
-		<slot />
+		<div class="pt-12 h-auto w-auto">
+			<Contentbox>
+				 <slot />
+			</Contentbox>
+		</div>
 	</body>
 </html>
 

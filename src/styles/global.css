@@ -4,3 +4,35 @@
     background-image: url('/bg-main.jpg');
     background-size: cover;
   }
+
+  @font-face 
+  {
+  font-family: 'Argh';
+  src: url('../fonts/Argh.ttf');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+  @font-face 
+  {
+  font-family: 'Alex';
+  src: url('../fonts/AlexBrush-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+  @keyframes fadeInUp 
+  {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
