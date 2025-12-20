@@ -1,8 +1,29 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import {Icon} from 'astro-icon/components';
 ---
 
 <Layout>
-  
+  <div class = "text-white">
+    <p>
+      <h1 class="font-[Alex] text-5xl">Contact</h1>
+    </p>
+    <br><br>
+      <p>
+        <h5 class = "font-[Argh]">
+          For business-related inquiries, please contact me over e-mail. <br>
+          Otherwise, contact me over discord.
+          <br><br>
+        </h5>
+      </p>
+      <div class="justify-items-center inline-flex gap-4">
+        <a href="https://discord.gg/ZVx8Tzax3W">
+            <Icon name="discord" width="75" height="75"/>
+        </a>
+        <a href="mailto:you@example.com" target="_blank" rel="noopener noreferrer">
+            <Icon name="email" width="75" height="75"/>
+        </a>
+      </div>
+    </div>
 </Layout>
