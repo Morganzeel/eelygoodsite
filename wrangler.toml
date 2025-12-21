@@ -1,5 +1,9 @@
 name = "eelygoodsite"
 compatibility_date = "2025-12-19"
 
+[[routes]]
+pattern = "shop.example.com"
+custom_domain = true
+
 [assets]
-directory = "./src"
+directory = "./dist"
