@@ -1,5 +1,5 @@
 {
-  "main": "src/_worker.js/index.js",
+  "main": "dist/index.html",
   "name": "eelygoodsite",
   "compatibility_date": "2025-12-21",
   "compatibility_flags": [
@@ -8,7 +8,7 @@
   ],
   "assets": {
     "binding": "ASSETS",
-    "directory": "./src"
+    "directory": "./dist"
   },
   "observability": {
     "enabled": true
