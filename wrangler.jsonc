@@ -1,5 +1,5 @@
 {
-  "main": "dist/_worker.js/index.js",
+  "main": "./src/pages/index.astro",
   "name": "eelygoodsite",
   "compatibility_date": "2025-12-21",
   "compatibility_flags": [
