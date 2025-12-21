@@ -1,0 +1,46 @@
+---
+const { frontmatter } = Astro.props;
+import '../components/navbar.astro'
+import Navbar from '../components/navbar.astro'
+import Blogentry from '../components/blogentry.astro'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{frontmatter.title}</title>
+	</head>
+	<body class="bg">
+		<Navbar />
+		<div class="pt-12 h-auto w-auto">
+			<Blogentry>
+                <p>
+                    <h1 class="font-[Alex] text-5xl">{frontmatter.title}</h1>
+                    <p class="text-xs">By: {frontmatter.author}</p>
+                </p>
+                <br><br>
+                <p>
+                    <h5 class = "font-[Argh]">
+                        {frontmatter.description}
+                    </h5>
+                </p>
+				<p>
+					<slot />
+				</p>
+            </Blogentry>
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Blogbox from "../components/blogbox.astro";
 import Contentbox from "../components/contentbox.astro";
 
-const markdownFiles = import.meta.glob('./posts/*.md', { eager: true });
+const markdownFiles = import.meta.glob('./reports/*.md', { eager: true });
 
 const blogPosts = Object.values(markdownFiles).map((file: any) => ({
   ...file.frontmatter,
