@@ -1,9 +1,25 @@
-name = "eelygoodsite"
-compatibility_date = "2025-12-19"
+{
+    name = "eelygoodsite"
+    compatibility_date = "2025-12-19"
 
-[[routes]]
-pattern = "shop.example.com"
-custom_domain = true
+    "main": "dist/_worker.js/index.js",
 
-[assets]
-directory = "./dist"
+    [[routes]]
+    pattern = "shop.example.com"
+    custom_domain = true
+
+    [assets]
+    directory = "./dist"
+    "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
+
