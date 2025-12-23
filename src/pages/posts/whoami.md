@@ -4,7 +4,7 @@ title: '"whoami?", The Realistic Hacking Game'
 imageUrl: "https://i.postimg.cc/GmGjb14Y/gameplayscreenshot.png"
 category: "Game Dev"
 date: "Dec 21, 2025"
-link: "/posts/test-portfolio"
+link: "/posts/whoami"
 author: 'Imad H.'
 ---
 
