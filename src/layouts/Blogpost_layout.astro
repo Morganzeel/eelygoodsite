@@ -1,8 +1,16 @@
 ---
+import { getImage } from "astro:assets"
 const { frontmatter } = Astro.props;
 import '../components/navbar.astro'
 import Navbar from '../components/navbar.astro'
 import Blogentry from '../components/blogentry.astro'
+import PreBackground from "../images/bg-main.jpg"
+
+const Background = await getImage({
+  src: PreBackground,
+  format: 'webp',
+  quality: 80,
+});
 ---
 
 <!doctype html>
@@ -14,7 +22,7 @@ import Blogentry from '../components/blogentry.astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>{frontmatter.title}</title>
 	</head>
-	<body class="bg">
+	<body class="bg" style={`background-image: url(${Background.src});`}>
 		<Navbar />
 		<div class="pt-12 h-auto w-auto">
 			<Blogentry>

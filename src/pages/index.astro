@@ -1,6 +1,15 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import { getImage } from "astro:assets"
+import Icon from "../images/pfp.png"
+
+
+const OptIcon = await getImage({
+  src: Icon,
+  format: 'webp',
+  quality: 80,
+});
 ---
 
 <Layout>
@@ -8,6 +17,8 @@ import Layout from "../layouts/Layout.astro";
     <p>
       <h1 class="font-[Alex] text-5xl">About Me</h1>
     </p>
+    <br>
+      <div class="inline-flex justify-center"> <img src={`${OptIcon.src}`} style="m-auto"/> </div>
     <br><br>
       <p>
         <h5 class = "font-[Argh]">

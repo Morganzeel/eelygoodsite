@@ -4,7 +4,7 @@ title: 'Test Report'
 imageUrl: "https://placehold.co/600x400"
 category: "HTB/VulnHub"
 date: "Dec 21, 2025"
-link: "/posts/test-reports"
+link: "/reports/test-reports"
 author: 'Imad H.'
 ---
 
