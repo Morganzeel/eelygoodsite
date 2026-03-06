@@ -1,0 +1,146 @@
+---
+export interface Props {
+  title: string;
+  imageUrl: string;
+  category: string;
+  date: string;
+  link?: string;
+  author?: string;
+}
+
+const {
+  title,
+  imageUrl,
+  category,
+  date,
+  link = "#",
+  author = "",
+} = Astro.props;
+---
+
+<article class="blog-card">
+  <a 
+    href={link} 
+    class="card-link block h-full rounded-lg overflow-hidden bg-gradient-to-b from-teal-900/60 to-cyan-900/60 border border-cyan-500/20"
+  >
+    <!-- Fixed size image container -->
+    <div class="card-image-container h-48 w-full overflow-hidden bg-gradient-to-br from-teal-800 to-cyan-900">
+      <img 
+        src={imageUrl} 
+        alt={title}
+        class="card-image w-full h-full object-cover"
+        width={400}
+        height={240}
+      />
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent"></div>
+      
+      <!-- Category badge -->
+      <div class="absolute top-3 left-3">
+        <span class="category-badge px-3 py-1 text-xs font-medium bg-cyan-900/80 backdrop-blur-sm text-cyan-200 rounded-full border border-cyan-500/30">
+          {category}
+        </span>
+      </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="card-content p-4">
+      <h3 class="card-title text-lg font-semibold text-cyan-100">
+        {title}
+      </h3>
+      
+      <div class="card-footer mt-3 flex items-center justify-between">
+        <span class="card-date text-sm text-cyan-300/70">
+          {date}
+        </span>
+        
+        {author && (
+          <span class="card-author text-sm text-cyan-300/70">
+            By {author}
+          </span>
+        )}
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  /* Global CSS for all blog cards */
+  .blog-card {
+    position: relative;
+  }
+  
+  /* Image zoom on hover - FIXED: Use transform only */
+  .blog-card:hover .card-image {
+    transform: scale(1.05);
+  }
+  
+  /* Brightness effects for text - FIXED: Use brighter colors */
+  .blog-card:hover .card-title {
+    color: #f0f9ff !important; /* Much brighter cyan-white */
+  }
+  
+  .blog-card:hover .card-description {
+    color: rgba(207, 250, 254, 0.95) !important; /* Brighter description */
+  }
+  
+  .blog-card:hover .card-date,
+  .blog-card:hover .card-author {
+    color: rgba(207, 250, 254, 0.95) !important; /* Brighter footer text */
+  }
+  
+  /* Make the entire card brighter - FIXED: Use specific transitions */
+  .blog-card:hover .card-link {
+    background: linear-gradient(to bottom, rgba(19, 78, 74, 0.8), rgba(22, 78, 99, 0.8));
+    border-color: rgba(34, 211, 238, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      0 0 20px rgba(34, 211, 238, 0.1);
+  }
+  
+  /* Brighter category badge on hover */
+  .blog-card:hover .category-badge {
+    background-color: rgba(21, 94, 117, 0.95) !important;
+    border-color: rgba(34, 211, 238, 0.5) !important;
+    color: #e5e5e5 !important;
+  }
+  
+  /* Smooth transitions - FIXED: Use specific properties, not 'all' */
+  .card-image {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-title {
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-description,
+  .card-date,
+  .card-author {
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-link {
+    transition: 
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .category-badge {
+    transition: 
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>

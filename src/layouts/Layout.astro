@@ -1,0 +1,41 @@
+---
+import { getImage } from "astro:assets"
+import '../components/navbar.astro'
+import Navbar from '../components/navbar.astro'
+import Contentbox from '../components/contentbox.astro'
+import PreBackground from "../images/bg-main.jpg"
+
+const Background = await getImage({
+  src: PreBackground,
+  format: 'webp',
+  quality: 80,
+});
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?" />
+		<meta name="generator" content={Astro.generator} />
+		<title>EelyGood</title>
+	</head>
+	<body class="bg" style={`background-repeat: no-repeat; background-image: url(${Background.src}); background-size: cover; background-size: 100% 400%;`}>
+		<Navbar />
+		<div class="pt-12 h-auto w-auto">
+			<Contentbox>
+				 <slot />
+			</Contentbox>
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

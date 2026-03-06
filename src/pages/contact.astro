@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import {Icon} from 'astro-icon/components';
+---
+
+<Layout>
+  <div class = "text-white">
+    <p>
+      <h1 class="font-[Alex] text-5xl">Contact</h1>
+    </p>
+    <br><br>
+      <p>
+        <h5 class = "font-[Argh]">
+          For business-related inquiries, please contact me over LinkedIn.<br>
+          Otherwise, contact me over e-mail.
+          <br><br>
+        </h5>
+      </p>
+      <div class="justify-items-center inline-flex gap-4">
+        <a href="https://www.linkedin.com/in/imad-hadzijahic-0b23b9320/" target="_blank" rel="noopener noreferrer">
+            <Icon name="linkedin" width="75" height="75"/>
+        </a>
+        <a href="mailto:eelygoodinc@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Icon name="email" width="75" height="75"/>
+        </a>
+      </div>
+    </div>
+</Layout>

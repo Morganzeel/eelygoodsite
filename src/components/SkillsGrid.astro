@@ -1,0 +1,131 @@
+---
+export interface SkillItem {
+  imageSrc: string;
+  imageAlt: string;
+  terms: string[];
+}
+
+export interface Props {
+  skills: SkillItem[];
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  skills = [],
+  title = "Skills & Expertise",
+  subtitle = "My core competencies and technologies",
+} = Astro.props;
+
+const gridItems = Array(4).fill(null).map((_, index) => 
+  skills[index] || {
+    imageSrc: "/placeholder.svg",
+    imageAlt: "Skill coming soon",
+    terms: ["More to come"]
+  }
+);
+---
+
+<div class="w-full font-[Argh] text-white">
+  {(subtitle) && (
+    <div class="text-center mb-16">
+      {subtitle && (
+        <p class="text-lg">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  )}
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-2 md:gap-3">
+    {gridItems.map((item, index) => (
+      <div 
+        class="skill-card group relative rounded-lg overflow-hidden bg-gradient-to-r from-teal-900/40 to-teal-900/60 border border-cyan-500/20 p-4 transition-all duration-300"
+        data-index={index}
+      >
+
+        <div class="relative z-10 mb-4 flex justify-center">
+          <div class="relative">
+            <div class="absolute -inset-2 bg-gradient-to-r from-cyan-500/10 to-cyan-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+            
+            <div class="relative w-32 h-32 rounded-full bg-gradient-to-br from-teal-800 to-cyan-900 flex items-center justify-center border border-cyan-500/30 overflow-hidden">
+              {item.imageSrc.includes('placeholder') ? (
+                <div class="text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-400/50 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  <span class="text-xs text-cyan-300/60 mt-2 block">Coming Soon</span>
+                </div>
+              ) : (
+                <img 
+                  src={item.imageSrc} 
+                  alt={item.imageAlt}
+                  class="w-full h-full object-cover p-2"
+                  loading="lazy"
+                  width={128}
+                  height={128}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <ul class="space-y-1.5">
+            {item.terms.map((term, termIndex) => (
+              <li 
+                class="skill-term text-center text-sm text-cyan-100/90 px-2 py-1 rounded bg-cyan-900/30 border border-cyan-700/30 transition-all duration-300 group-hover:bg-cyan-800/40 group-hover:border-cyan-600/40 group-hover:text-cyan-50"
+                data-term-index={termIndex}
+              >
+                {term}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .skill-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(34, 211, 238, 0.4);
+    box-shadow: 
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      0 0 20px rgba(34, 211, 238, 0.1);
+  }
+
+  .skill-card:hover .skill-term {
+    animation: termGlow 0.5s ease forwards;
+    animation-delay: calc(var(--term-index, 0) * 0.1s);
+  }
+
+  @keyframes termGlow {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .skill-card {
+      padding: 1rem;
+    }
+    
+    .skill-card .w-32 {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+</style>
