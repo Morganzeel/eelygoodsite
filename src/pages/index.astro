@@ -1,21 +1,96 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import { getImage } from "astro:assets"
+import Icon from "../images/pfp.png"
+import SkillsGrid from '../components/SkillsGrid.astro';
+import Contentbox from "../components/contentbox.astro";
+import Comptia from "./../../public/Security+-svg.svg"
+
+const mySkills = [
+  {
+    imageSrc: "encrypted-channel.svg",
+    imageAlt: "Network Security",
+    terms: ["Traffic Analysis with Wireshark", "Firewall Configuration", "Network Architecture"]
+  },
+  {
+    imageSrc: "wireframe-globe.svg",
+    imageAlt: "Web Security",
+    terms: ["Identifying and Exploiting Common Vulnerablities", "Secure Website Architecture", "Server and Backend Hardening"]
+  },
+  {
+    imageSrc: "breaking-chain.svg",
+    imageAlt: "Penetration Testing Toolset",
+    terms: ["Nmap", "BurpSuite", "MetaSploit Framework"]
+  },
+  {
+    imageSrc: "computing.svg",
+    imageAlt: "Programming and Scripting Languages",
+    terms: ["C/C++", "Python", "Java"]
+  }
+];
+
+for (let i = mySkills.length; i < 4; i++) {
+  mySkills.push({
+    imageSrc: "/placeholder.svg",
+    imageAlt: `Skill ${i + 1}`,
+    terms: ["Coming soon..."]
+  });
+}
+
+const OptIcon = await getImage({
+  src: Icon,
+  format: 'webp',
+  quality: 80,
+});
+
+const ComptiaImg = await getImage({
+  src: Comptia,
+  format: 'webp'
+});
 ---
 
 <Layout>
   <div class = "text-white">
     <p>
-      <h1 class="font-[Alex] text-5xl">About Me</h1>
+      <br>
+      <h1 class="font-[Alex] text-7xl">About Me</h1>
     </p>
+    <br>
+      <div class="inline-flex justify-center"> <img src={`${OptIcon.src}`} style="m-auto"/> </div>
     <br><br>
       <p>
-        <h5 class = "font-[Argh]">
-          My name is Imad, but online you can often find me under the username Morganzeel. <br>
-          My interests include penetration testing, software, web and game development, and (recently) working with embedded systems. <br>
-          I'm currently studying computer science at the University of Tuzla. <br>
+        <div class = "font-[Argh] text-2xl">
+          <span>Hello, I'm Imad.</span> <br><br>
+        </div>
+      </p>
+      <p>
+        <div class = "font-[Argh] text-lg">
+          I'm a junior security analyst currently studying computer science at the University of Tuzla. <br>
+          My interests include, but are not limited to: Cybersecurity (Both Offensive and Defensive), Web Development, Game Development, Computer Architecture, and, more recently, Embedded Systems 
+        </div>
+        <br><br>
+
+        <SkillsGrid 
+          skills={mySkills}
+          subtitle="Some of my relevant work skills include:"
+        />
+        
+        <br>
+        <br>
+        <br>
+        <div class = "font-[Argh] text-white text-lg">
+          My current certifications include:
+        </div>
+        <Contentbox>
+          <div class="inline-flex justify-center"><img src={`${ComptiaImg.src}`} style="m-auto" width={128} height={128}/></div>
+        </Contentbox>
+
+        <br>
+        <br>
+        <h5 class = "font-[Argh] text-white">
           If you want to see my work, please visit the Portfolio page and check out all the projects I worked on.<br>
-          If you want to check out my reports/writeups, visit the Reports page. <br>
+          If you want to learn more about me, or check out some of my achievements, visit the Blog page. <br>
           If you want to get in touch with me, visit the Contact page to learn how.
         </h5>
       </p>

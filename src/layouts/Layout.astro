@@ -1,9 +1,9 @@
 ---
-import { getImage } from "astro:assets";
+import { getImage } from "astro:assets"
 import '../components/navbar.astro'
 import Navbar from '../components/navbar.astro'
 import Contentbox from '../components/contentbox.astro'
-import PreBackground from "../assets/bg-main.jpg";
+import PreBackground from "../images/bg-main.jpg"
 
 const Background = await getImage({
   src: PreBackground,
@@ -21,7 +21,7 @@ const Background = await getImage({
 		<meta name="generator" content={Astro.generator} />
 		<title>EelyGood</title>
 	</head>
-	<body class="bg" style={`background-image: url(${Background.src});`}>
+	<body class="bg" style={`background-repeat: no-repeat; background-image: url(${Background.src}); background-size: cover; background-size: 100% 400%;`}>
 		<Navbar />
 		<div class="pt-12 h-auto w-auto">
 			<Contentbox>
