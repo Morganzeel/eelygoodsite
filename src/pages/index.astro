@@ -6,27 +6,23 @@ import Icon from "../images/pfp.png"
 import SkillsGrid from '../components/SkillsGrid.astro';
 import Contentbox from "../components/contentbox.astro";
 import Comptia from "./../../public/Security+-svg.svg"
+import CCNA from "./../../public/ccna.png"
 
 const mySkills = [
   {
     imageSrc: "encrypted-channel.svg",
     imageAlt: "Network Security",
-    terms: ["Traffic Analysis with Wireshark", "Firewall Configuration", "Network Architecture"]
+    terms: ["Implementation of Common Network Security Solutions", "Implementation of Security Policies", "Firewall Management and Configuration"]
   },
   {
     imageSrc: "wireframe-globe.svg",
-    imageAlt: "Web Security",
-    terms: ["Identifying and Exploiting Common Vulnerablities", "Secure Website Architecture", "Server and Backend Hardening"]
-  },
-  {
-    imageSrc: "breaking-chain.svg",
-    imageAlt: "Penetration Testing Toolset",
-    terms: ["Nmap", "BurpSuite", "MetaSploit Framework"]
+    imageAlt: "Computer Networking",
+    terms: ["Network Troubleshooting and Configuration", "Basic Network Architecture", "Computer Network Management"]
   },
   {
     imageSrc: "computing.svg",
-    imageAlt: "Programming and Scripting Languages",
-    terms: ["C/C++", "Python", "Java"]
+    imageAlt: "Other Relevant Computer Skills",
+    terms: ["Knowledge of Common Programming Languages", "Deployment and Management of Servers", "Experience with Automation (N8N)"]
   }
 ];
 
@@ -48,6 +44,11 @@ const ComptiaImg = await getImage({
   src: Comptia,
   format: 'webp'
 });
+
+const CCNAImg = await getImage({
+  src: CCNA,
+  format: 'webp'
+});
 ---
 
 <Layout>
@@ -67,7 +68,7 @@ const ComptiaImg = await getImage({
       <p>
         <div class = "font-[Argh] text-lg">
           I'm a junior network engineer currently studying computer science at the University of Tuzla. <br>
-          My interests include, but are not limited to: Cybersecurity (mostly defensive), Networking, Web Development and Game Development
+          My interests include Cybersecurity, Networking, and Game Development
         </div>
         <br><br>
 
@@ -84,6 +85,7 @@ const ComptiaImg = await getImage({
         </div>
         <Contentbox>
           <div class="inline-flex justify-center"><img src={`${ComptiaImg.src}`} style="m-auto" width={128} height={128}/></div>
+          <div class="inline-flex justify-center"><img src={`${CCNAImg.src}`} style="m-auto" width={128} height={128}/></div>
         </Contentbox>
 
         <br>
