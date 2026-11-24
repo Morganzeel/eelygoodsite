@@ -13,7 +13,7 @@ author: 'Imad Hadzijahic'
 I am delighted to share that after around 3 months of serious prep time, I achieved yet another major milestone -- as of yesterday, I am finally CCNA certified!\
 <br>
 <br>
-![](https://i.postimg.cc/c4JQXjB1/ccna.png){: .center-image}
+![CCNA Badge](https://i.postimg.cc/c4JQXjB1/ccna.png){ style="display: block; margin: 0 auto" }
 <br>
 <br>
 This certification was a major undertaking, and it took a lot out of me, to be honest, but it was incredibly worth it.\
