@@ -4,7 +4,7 @@ title: 'My CCNA Journey'
 imageUrl: "https://postimg.cc/23Pb50tg"
 category: "Certifications"
 date: "Nov 21, 2026"
-link: "/posts/ccna-journey"
+link: "/blogposts/ccna"
 author: 'Imad Hadzijahic'
 ---
 
